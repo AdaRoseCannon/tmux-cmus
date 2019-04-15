@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cmus_max_song_length=10
 cmus_max_artist_length=10
