@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cmus_max_song_length=10
-cmus_max_artist_length=10
+cmus_max_song_length=12
+cmus_max_artist_length=12
 
 
 truncate_song() {
@@ -42,7 +42,8 @@ cmus_status() {
     local cmus_duration=$(cmus-remote -Q | egrep "^duration " | cut -d ' ' -f 2)
     local cmus_position=$(cmus-remote -Q | egrep "^position " | cut -d ' ' -f 2)
     
-    local cmus_combined="$(truncate_artist $cmus_artist) - $(truncate_song $cmus_title) $(pretty_time $cmus_duration $cmus_position)"
+    # local cmus_combined="$(truncate_artist $cmus_artist) - $(truncate_song $cmus_title) $(pretty_time $cmus_duration $cmus_position)"
+    local cmus_combined="$(truncate_artist $cmus_artist) - $(truncate_song $cmus_title)"
 
     if [ "$cmus_status" == "playing" ]; then
       echo "🎵  ${cmus_combined}"
